@@ -26,6 +26,10 @@ public class Quest001 : MonoBehaviour
         // when the distance from Player is less than 3
         if (theDistance <= 3)
         {
+            // for the mouse cursor
+            Screen.lockCursor = false;
+            Cursor.visible = true;
+
             actionButton.SetActive(true);
             actionText.SetActive(true);
 
