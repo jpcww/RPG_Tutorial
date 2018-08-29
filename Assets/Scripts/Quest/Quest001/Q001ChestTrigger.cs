@@ -15,10 +15,6 @@ public class Q001ChestTrigger : MonoBehaviour
 
     Vector3 scale;
 
-    void Start()
-    {
-        scale = objective.transform.localScale;
-    }
 
     // Update is called once per frame
     void Update ()
@@ -47,7 +43,7 @@ public class Q001ChestTrigger : MonoBehaviour
      void OnMouseOver()
     {
         // when the distance is less than 3
-        if (distance <= 3)
+        if (distance <= 5)
         {
             actionText.GetComponent<Text>().text = "Open Chest";
             actionText.SetActive(true);

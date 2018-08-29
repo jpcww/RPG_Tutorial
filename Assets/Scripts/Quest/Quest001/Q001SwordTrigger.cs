@@ -42,7 +42,7 @@ public class Q001SwordTrigger : MonoBehaviour
     void OnMouseOver()
     {
         // when the distance is less than 3
-        if (distance <= 3)
+        if (distance <= 5)
         {
             actionText.GetComponent<Text>().text = "Take Sword";
             actionText.SetActive(true);
