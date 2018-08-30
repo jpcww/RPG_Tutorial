@@ -11,6 +11,8 @@ public class Q001ChestTrigger : MonoBehaviour
     public GameObject actionText;
     public GameObject objective;
     public int closeObjective;
+    public GameObject exMark;
+    public GameObject CompleteTrigger;
 
 
     Vector3 scale;
@@ -58,6 +60,10 @@ public class Q001ChestTrigger : MonoBehaviour
                 closeObjective = 3;
                 actionText.SetActive(false);
                 actionDisplay.SetActive(false);
+
+                // make mark & trigger appear
+                exMark.SetActive(true);
+                CompleteTrigger.SetActive(true);
             }
         }
     }

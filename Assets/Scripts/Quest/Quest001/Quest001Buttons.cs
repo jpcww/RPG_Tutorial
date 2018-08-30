@@ -12,6 +12,9 @@ public class Quest001Buttons : MonoBehaviour
     public GameObject objective01;
     public GameObject objective02;
     public GameObject objective03;
+    public GameObject exMark;
+    public GameObject notice;
+    public GameObject noticeTrigger;
 
     // a function for when Accept button is pressed
     public void AcceptQuest()
@@ -19,12 +22,19 @@ public class Quest001Buttons : MonoBehaviour
         Player.SetActive(true);
         noticeCamera.SetActive(false);
         UIQuest.SetActive(false);
+        exMark.SetActive(false);
 
         StartCoroutine(SetQuestUI ());
     }
 
     IEnumerator SetQuestUI()
     {
+        // make things seem like I have accepted the quest
+        exMark.SetActive(false);
+        notice.SetActive(false);
+        noticeTrigger.SetActive(false);
+
+        // show the quests objectives
         activeQuestBox.GetComponent<Text>().text = "My First Weapon";
         objective01.GetComponent<Text>().text = "Reach the clearing in the the wood";
         objective02.GetComponent<Text>().text = "Open the Chest";
@@ -33,6 +43,7 @@ public class Quest001Buttons : MonoBehaviour
         QuestManager.activeQuestNumber = 1;
         yield return new WaitForSeconds(0.5f);
 
+        // make UI appear and disappear in order
         activeQuestBox.SetActive(true);
         yield return new WaitForSeconds(1);
 
@@ -49,6 +60,13 @@ public class Quest001Buttons : MonoBehaviour
         objective01.SetActive(false);
         objective02.SetActive(false);
         objective03.SetActive(false);
+    }
+
+    public void DeclineQuest()
+    {
+        Player.SetActive(true);
+        noticeCamera.SetActive(false);
+        UIQuest.SetActive(false);
     }
 
 }
