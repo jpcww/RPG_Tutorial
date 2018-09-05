@@ -37,7 +37,7 @@ public class NPC001 : MonoBehaviour
                 AttackBlocker.blockSword = 2;
 
                 //let mouse function
-                Screen.lockCursor = false;
+                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
                 // turn off UIs

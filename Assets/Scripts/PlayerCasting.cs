@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCasting : MonoBehaviour {
+public class PlayerCasting : MonoBehaviour
+{
 
     public static float distanceFromTarget;
     // internal path for the static variable

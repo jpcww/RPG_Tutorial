@@ -122,13 +122,14 @@ GameObject:
   m_Component:
   - component: {fileID: 34529590}
   - component: {fileID: 34529591}
+  - component: {fileID: 34529592}
   m_Layer: 0
   m_Name: CutScene1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &34529590
 Transform:
   m_ObjectHideFlags: 0
@@ -139,7 +140,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1379402250}
   - {fileID: 2039328370}
   - {fileID: 1568708590}
   - {fileID: 532504174}
@@ -152,9 +152,9 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 34529589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d2f342f001617429b088bd70ac6f57, type: 3}
+  m_Script: {fileID: 11500000, guid: 8da93fe5bbbd5744ea3437cd8b809e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Camera1: {fileID: 1379402249}
@@ -163,6 +163,18 @@ MonoBehaviour:
   FadeOut: {fileID: 667571762}
   FadeIn: {fileID: 228881322}
   Player: {fileID: 689620079}
+--- !u!114 &34529592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 34529589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb5debe142d8a545ac73fd7656a6d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeIn: {fileID: 228881322}
 --- !u!1 &120225294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34529590}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &532504175
 AudioSource:
@@ -3381,8 +3393,7 @@ MonoBehaviour:
   actionText: {fileID: 1145519337}
   objective: {fileID: 1982006070}
   closeObjective: 0
-  exMark: {fileID: 892173523}
-  CompleteTrigger: {fileID: 1157070622}
+  takeSword: {fileID: 1469394436}
 --- !u!65 &969586300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4644,11 +4655,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379402249}
-  m_LocalRotation: {x: -0, y: 0.81462187, z: -0, w: 0.5799924}
-  m_LocalPosition: {x: 261.11, y: 5.8, z: 255.82}
+  m_LocalRotation: {x: -0, y: 0.35975254, z: 0, w: -0.9330478}
+  m_LocalPosition: {x: -8.628149, y: 1.8117261, z: -3.0706177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 34529590}
+  m_Father: {fileID: 2039328370}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 109.1, z: 0}
 --- !u!111 &1379402251
@@ -5063,7 +5074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1469394437
 Transform:
   m_ObjectHideFlags: 0
@@ -5095,6 +5106,8 @@ MonoBehaviour:
   actionText: {fileID: 1145519337}
   objective: {fileID: 1867867351}
   closeObjective: 0
+  exMark: {fileID: 892173523}
+  CompleteTrigger: {fileID: 1157070622}
 --- !u!65 &1469394439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5479,7 +5492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d243a6e7c3a92d04b9dcedd1851b0c61, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: d243a6e7c3a92d04b9dcedd1851b0c61, type: 3}
@@ -5572,7 +5585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34529590}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 130.3, z: 0}
 --- !u!111 &1568708591
 Animation:
@@ -6962,9 +6975,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.96873486, z: -0, w: -0.24809834}
   m_LocalPosition: {x: 255.02, y: 3.988274, z: 248.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1379402250}
   m_Father: {fileID: 34529590}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 511.27, z: 0}
 --- !u!111 &2039328371
 Animation:

@@ -27,7 +27,7 @@ public class Quest001 : MonoBehaviour
         if (theDistance <= 3)
         {
             // for the mouse cursor
-            Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
             //for sword not to attack

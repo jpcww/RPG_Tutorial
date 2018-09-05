@@ -11,12 +11,14 @@ public class Q001ChestTrigger : MonoBehaviour
     public GameObject actionText;
     public GameObject objective;
     public int closeObjective;
-    public GameObject exMark;
-    public GameObject CompleteTrigger;
-
+    public GameObject takeSword;
 
     Vector3 scale;
 
+    private void Start()
+    {
+        scale = objective.transform.localScale;
+    }
 
     // Update is called once per frame
     void Update ()
@@ -24,9 +26,13 @@ public class Q001ChestTrigger : MonoBehaviour
         // mesure the distace from the object and Player
         distance = PlayerCasting.distanceFromTarget;
 
+
         //when the objective is closed
         if (closeObjective == 3)
         {
+            // make the UI of this objective active 
+            objective.SetActive(true);
+
             if (scale.y <= 0.0f)
             {
                 closeObjective = 0;
@@ -34,10 +40,9 @@ public class Q001ChestTrigger : MonoBehaviour
             }
             else
             {
-                scale = objective.transform.localScale;
                 scale.y -= 0.01f;
                 objective.transform.localScale = scale;
-              
+
             }
         }
 	}
@@ -45,7 +50,7 @@ public class Q001ChestTrigger : MonoBehaviour
      void OnMouseOver()
     {
         // when the distance is less than 3
-        if (distance <= 5)
+        if (distance <= 3)
         {
             actionText.GetComponent<Text>().text = "Open Chest";
             actionText.SetActive(true);
@@ -56,14 +61,15 @@ public class Q001ChestTrigger : MonoBehaviour
             {
                 this.GetComponent<BoxCollider>().enabled = false;
                 chest.GetComponent<Animation>().Play("Q01ChestOpen");
+
+                // activate SwordTrigger
+                takeSword.SetActive(true);
+
                 //Flag
                 closeObjective = 3;
+          
                 actionText.SetActive(false);
                 actionDisplay.SetActive(false);
-
-                // make mark & trigger appear
-                exMark.SetActive(true);
-                CompleteTrigger.SetActive(true);
             }
         }
     }

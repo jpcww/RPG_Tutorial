@@ -17,7 +17,7 @@ public class Quest001Trigger : MonoBehaviour
         {
             if (objective.transform.localScale.y <= 0.0f)
             {
-                closedObjective = 0;
+                closedObjective = 3;
                 objective.SetActive(false);
             }
 
