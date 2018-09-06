@@ -59,6 +59,9 @@ public class Q001SwordTrigger : MonoBehaviour
             // when Action button is pressed
             if (Input.GetButtonDown("Action"))
             {
+                //update Quest Manager
+                QuestManager.subQuestNumber = 3;
+
                 this.GetComponent<BoxCollider>().enabled = false;
                 swordInChest.SetActive(false);
                 swordInHand.SetActive(true);

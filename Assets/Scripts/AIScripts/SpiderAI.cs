@@ -11,6 +11,7 @@ public class SpiderAI : MonoBehaviour
     public float spiderSpeed;
     public int attackTrigger;
     public RaycastHit shot;
+    public int dealDamage;
 
 	// Update is called once per frame
 	void Update ()
@@ -48,10 +49,32 @@ public class SpiderAI : MonoBehaviour
         // when the trigger is 1, spider stops and attacks
         if (attackTrigger == 1)
         {
-            spiderSpeed = 0;
-            spider.GetComponent<Animation>().Play("attack");
+            if (dealDamage == 0)
+            {
+                spiderSpeed = 0;
+                spider.GetComponent<Animation>().Play("attack");
+                StartCoroutine(TakingDamage());
+            }
         }
 	}
+    
+    // what happens when Play takes damage from spider
+    IEnumerator TakingDamage()
+    {
+        //indicator is set to 2, and wait for half sec
+        dealDamage = 2;
+        yield return new WaitForSeconds(0.5f);
+
+        //if spider is not dead, while attacking Player, decrease the health point of Player by 1
+        if (SpiderEnemy.globalSpider != 6)
+        {
+            HealthMonitor.heartValue -= 1;
+        }
+
+        // and wait for half sec and set the indicator into 0 for spider to attack
+        yield return new WaitForSeconds(0.5f);
+        dealDamage = 0;
+    }
 
     // when spider reaches Player's colldier
     void OnTriggerEnter(Collider other)

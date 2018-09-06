@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthMonitor : MonoBehaviour {
 
@@ -22,14 +23,24 @@ public class HealthMonitor : MonoBehaviour {
     {
         internalHeart = heartValue;
 
+        // when health is 0, load gameOver scene
+        if (heartValue <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+
+
         if (heartValue == 1)
         {
             heart1.SetActive(true);
+            heart2.SetActive(false);
+            heart3.SetActive(false);
         }
 
         if (heartValue == 2)
         {
             heart2.SetActive(true);
+            heart3.SetActive(false);
         }
 
         if(heartValue==3)

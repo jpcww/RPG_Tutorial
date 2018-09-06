@@ -36,7 +36,7 @@ public class Quest001 : MonoBehaviour
             actionButton.SetActive(true);
             actionText.SetActive(true);
 
-            // and when the action button is pressed
+            // and when the action button is pressed to take Quest
             if (Input.GetButtonDown("Action"))
             {
                 //for the sword not to attack

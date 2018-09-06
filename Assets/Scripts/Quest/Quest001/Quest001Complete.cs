@@ -34,6 +34,9 @@ public class Quest001Complete : MonoBehaviour
             // and when the action button is pressed
             if (Input.GetButtonDown("Action"))
             {
+                // Update Quest Manager
+                QuestManager.subQuestNumber = 0;
+
                 exMark.SetActive(false);
                 GlobalEXP.currentEXP += 100;
                 actionButton.SetActive(false);

@@ -19,6 +19,9 @@ public class Quest001Buttons : MonoBehaviour
     // a function for when Accept button is pressed
     public void AcceptQuest()
     {
+        // notify QuestManager that we have taken the quest and update the quest indicating nummbers
+        QuestManager.subQuestNumber = 1;
+
         Player.SetActive(true);
         noticeCamera.SetActive(false);
         UIQuest.SetActive(false);

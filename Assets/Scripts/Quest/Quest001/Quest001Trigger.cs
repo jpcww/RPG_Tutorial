@@ -37,6 +37,10 @@ public class Quest001Trigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            // update Quest Manager
+            QuestManager.subQuestNumber = 2;
+            // turn off the box collide after passing the way first
+            GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(FinishObjective());
         }
     }
