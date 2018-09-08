@@ -15,10 +15,14 @@ public class Quest001Buttons : MonoBehaviour
     public GameObject exMark;
     public GameObject notice;
     public GameObject noticeTrigger;
+    public GameObject miniMap;
 
     // a function for when Accept button is pressed
     public void AcceptQuest()
     {
+        // when accepting quest, turn on MiniMap
+        miniMap.SetActive(true);
+
         // notify QuestManager that we have taken the quest and update the quest indicating nummbers
         QuestManager.subQuestNumber = 1;
 
@@ -67,6 +71,9 @@ public class Quest001Buttons : MonoBehaviour
 
     public void DeclineQuest()
     {
+        // when denying quest, turn on MiniMap
+        miniMap.SetActive(true);
+
         Player.SetActive(true);
         noticeCamera.SetActive(false);
         UIQuest.SetActive(false);

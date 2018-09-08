@@ -20,7 +20,7 @@ public class NPC001 : MonoBehaviour
     }
 
     // when mouse is on the NPC
-    private void OnMouseOver()
+    void OnMouseOver()
     {
         // when the distance is less than 3
         if (distance <=3)

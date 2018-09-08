@@ -11,6 +11,7 @@ public class Quest001 : MonoBehaviour
     public GameObject UIQuest;
     public GameObject player;
     public GameObject noticeCamera;
+    public GameObject miniMap;
 
 
 
@@ -26,6 +27,9 @@ public class Quest001 : MonoBehaviour
         // when the distance from Player is less than 3
         if (theDistance <= 3)
         {
+            // when approching enough to Notice Board, turn off MiniMap
+            miniMap.SetActive(false);
+
             // for the mouse cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
