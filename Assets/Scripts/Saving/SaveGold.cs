@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SaveGold : MonoBehaviour
 {
+    public int loadGold;
 
 	// Use this for initialization
 	void Start ()
     {
-        PlayerPrefs.SetInt("GoldAmoutSave", GlobalCash.goldAmount);
+        // when game starts, load the amount of gold saved
+        loadGold = PlayerPrefs.GetInt("GoldAmountSave");
 	}
 
 }

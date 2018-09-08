@@ -39,6 +39,11 @@ public class Quest001Complete : MonoBehaviour
 
                 // obtain gold after finishing quest
                 GlobalCash.goldAmount += 100;
+                // save the status of gold
+                PlayerPrefs.SetInt("GoldAmountSave", GlobalCash.goldAmount);
+
+                // notify QuestManager moving on to next quest
+                QuestManager.activeQuestNumber = 2;
 
                 exMark.SetActive(false);
                 GlobalEXP.currentEXP += 100;

@@ -53,25 +53,51 @@ public class NPC001 : MonoBehaviour
     // get NPC001 interact with Player
     IEnumerator NPC001Active()
     {
-        // turn on UIs for interacting
-        textBox.SetActive(true);
-        NPCName.GetComponent<Text>().text = "Red";
-        NPCName.SetActive(true);
-        NPCText.GetComponent<Text>().text = "Greetings, I need your help. If you wish to, please come to me here in the afternoon";
-        NPCText.SetActive(true);
+        if (QuestManager.activeQuestNumber == 2)
+        {
+            // turn on UIs for interacting
+            textBox.SetActive(true);
+            NPCName.GetComponent<Text>().text = "Red";
+            NPCName.SetActive(true);
+            NPCText.GetComponent<Text>().text = " We have a spider problem. Can you go outside the village, kill the spiders and thier boss. Here is the key";
+            NPCText.SetActive(true);
 
-        // wait for 5 sec for the user to read
-        yield return new WaitForSeconds(5);
+            // wait for 5 sec for the user to read
+            yield return new WaitForSeconds(5);
 
-        // turn off UIs for interacting
-        NPCName.SetActive(false);
-        NPCText.SetActive(false);
-        textBox.SetActive(false);
+            // turn off UIs for interacting
+            NPCName.SetActive(false);
+            NPCText.SetActive(false);
+            textBox.SetActive(false);
 
-        // get the premier UIs back
-        actionButton.SetActive(true);
-        actionText.SetActive(true);
-        
+            // get the premier UIs back
+            actionButton.SetActive(true);
+            actionText.SetActive(true);
+        }
+
+        else
+        {
+            // turn on UIs for interacting
+            textBox.SetActive(true);
+            NPCName.GetComponent<Text>().text = "Red";
+            NPCName.SetActive(true);
+            NPCText.GetComponent<Text>().text = "Greetings, I need your help. If you wish to, please come to me here in the afternoon";
+            NPCText.SetActive(true);
+
+            // wait for 5 sec for the user to read
+            yield return new WaitForSeconds(5);
+
+            // turn off UIs for interacting
+            NPCName.SetActive(false);
+            NPCText.SetActive(false);
+            textBox.SetActive(false);
+
+            // get the premier UIs back
+            actionButton.SetActive(true);
+            actionText.SetActive(true);
+
+        }
+
     }
 
     // when mouse has exited from the NPC
