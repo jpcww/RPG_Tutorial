@@ -37,6 +37,9 @@ public class Quest001Complete : MonoBehaviour
                 // Update Quest Manager
                 QuestManager.subQuestNumber = 0;
 
+                // obtain gold after finishing quest
+                GlobalCash.goldAmount += 100;
+
                 exMark.SetActive(false);
                 GlobalEXP.currentEXP += 100;
                 actionButton.SetActive(false);
