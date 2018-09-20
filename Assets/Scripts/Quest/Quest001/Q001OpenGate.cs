@@ -10,6 +10,8 @@ public class Q001OpenGate : MonoBehaviour
     public GameObject actionText;
     public GameObject leftGate;
     public GameObject rightGate;
+    public GameObject spider;
+    public GameObject spiderBoss;
 	
 	// Update is called once per frame
 	void Update ()
@@ -33,9 +35,6 @@ public class Q001OpenGate : MonoBehaviour
                 //turn off the collider
                 GetComponent<BoxCollider>().enabled = false;
 
-                // prevent player from attacking
-                AttackBlocker.blockSword = 2;
-
                 // turn off uis
                 // play animation of gate to open them
                 actionButton.SetActive(false);
@@ -43,6 +42,10 @@ public class Q001OpenGate : MonoBehaviour
                 actionText.GetComponent<Text>().text = " ";
                 leftGate.GetComponent<Animation>().Play("LeftGate");
                 rightGate.GetComponent<Animation>().Play("RightGate");
+
+                // activate spiders
+                spider.SetActive(true);
+                spiderBoss.SetActive(true);
             }
         }
     }

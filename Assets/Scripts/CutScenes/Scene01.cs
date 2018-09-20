@@ -10,6 +10,7 @@ public class Scene01 : MonoBehaviour
     public GameObject FadeOut;
     public GameObject FadeIn;
     public GameObject Player;
+    public GameObject miniMap;
 
 	// Use this for initialization
 	void Start()
@@ -43,6 +44,11 @@ public class Scene01 : MonoBehaviour
         Player.SetActive(true);
         Camera3.SetActive(false);
         yield return new WaitForSeconds(1);
+
+        // turn on miniMap and fadeIn for the UIs
+        miniMap.SetActive(true);
+        FadeIn.SetActive(false);
+
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class NPC001 : MonoBehaviour
+public class NPC001NPC001_complete : MonoBehaviour
 {
     public float distance;
     public GameObject actionButton;
@@ -15,7 +15,7 @@ public class NPC001 : MonoBehaviour
     public GameObject miniMap;
 
 
-     void Update()
+    private void Update()
     {
         // get the distance from gameObject and Player
         distance = PlayerCasting.distanceFromTarget;
@@ -30,7 +30,6 @@ public class NPC001 : MonoBehaviour
             AttackBlocker.blockSword = 1;
             actionText.GetComponent<Text>().text = "Talk";
             actionText.SetActive(true);
-            actionButton.GetComponent<Text>().text = "[F]";
             actionButton.SetActive(true);
 
             // when action button is press
@@ -53,11 +52,10 @@ public class NPC001 : MonoBehaviour
         }
     }
 
-
     // get NPC001 interact with Player
     IEnumerator NPC001Active()
     {
-        if (QuestManager.activeQuestNumber == 2)
+        if (QuestManager.activeQuestNumber == 2 && QuestManager.subQuestNumber == 4)
         {
             // turn off MIniMap
             miniMap.SetActive(false);
@@ -66,12 +64,16 @@ public class NPC001 : MonoBehaviour
             textBox.SetActive(true);
             NPCName.GetComponent<Text>().text = "Red";
             NPCName.SetActive(true);
-            NPCText.GetComponent<Text>().text = " We have a spider problem. Can you go outside the village, kill the spiders and thier boss. Here is the key";
+
+
+            NPCText.GetComponent<Text>().text = " Thank you very much for your help. There is a cave outisde the village, please go explore";
             NPCText.SetActive(true);
 
-            // get to be able to open the gate
-            gateOpen.SetActive(true);
-
+            // cave object is set
+            // update Quest Manager to proceed to the next quest
+            QuestManager.activeQuestNumber = 3;
+            QuestManager.subQuestNumber = 1;
+            
             // wait for 5 sec for the user to read
             yield return new WaitForSeconds(5);
 
@@ -94,7 +96,7 @@ public class NPC001 : MonoBehaviour
             textBox.SetActive(true);
             NPCName.GetComponent<Text>().text = "Red";
             NPCName.SetActive(true);
-            NPCText.GetComponent<Text>().text = "Greetings, I need your help. If you wish to, please come to me here in the afternoon";
+            NPCText.GetComponent<Text>().text = "Please come and see me when you have explored the cave";
             NPCText.SetActive(true);
 
             // wait for 5 sec for the user to read
@@ -114,11 +116,11 @@ public class NPC001 : MonoBehaviour
     }
 
     // when mouse has exited from the NPC
-    void OnMouseExit()
+    private void OnMouseExit()
     {
         // attacking functioning
         AttackBlocker.blockSword = 0;
-        print(AttackBlocker.blockSword);
+
         // turn off UIs
         actionText.SetActive(false);
         actionButton.SetActive(false);

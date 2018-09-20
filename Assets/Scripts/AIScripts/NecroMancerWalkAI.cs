@@ -21,7 +21,7 @@ public class NecroMancerWalkAI : MonoBehaviour
 	void Update ()
     {
         transform.LookAt(NPCdestination.transform);
-        transform.position = Vector3.MoveTowards(transform.position, NPCdestination.transform.position, 0.08f);
+        transform.position = Vector3.MoveTowards(transform.position, NPCdestination.transform.position, 0.05f * Time.timeScale);
 	}
 
     IEnumerator RandomWalk()

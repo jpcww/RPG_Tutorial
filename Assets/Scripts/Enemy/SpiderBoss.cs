@@ -66,6 +66,9 @@ public class SpiderBoss : MonoBehaviour
 
         oldNPC.SetActive(false);
         newNPC.SetActive(true);
+
+        // when player has killed the boss spider, update Quest Manager
+        QuestManager.subQuestNumber = 4;
     }
 }
 
